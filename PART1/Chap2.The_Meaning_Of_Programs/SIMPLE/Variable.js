@@ -11,6 +11,10 @@ export class Variable {
     return true;
   }
 
+  valueOf() {
+    return this.name;
+  }
+
   reduce(environment) {
     return environment[this.name];
   }

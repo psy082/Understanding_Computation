@@ -1,3 +1,5 @@
+import { DoNothing } from "./DoNothing.js";
+
 export class Assign {
   constructor(name, expression) {
     this.name = name;
@@ -14,8 +16,15 @@ export class Assign {
 
   reduce(environment) {
     if (this.expression.isReducible) {
-      return new Assign(this.name, this.expression.reduce(environment));
+      return [
+        new Assign(this.name, this.expression.reduce(environment)),
+        environment,
+      ];
     } else {
+      return [
+        new DoNothing(),
+        { ...environment, [this.name]: this.expression },
+      ];
     }
   }
 }

@@ -19,7 +19,7 @@ export class LessThan {
       return new LessThan(this._left, this._right.reduce(environment));
     }
 
-    return new Boolean(this._left.value < this._right.value);
+    return new Boolean(this._left < this._right);
   }
 
   get isReducible() {

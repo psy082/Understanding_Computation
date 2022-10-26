@@ -19,7 +19,7 @@ export class Add {
       return new Add(this._left, this._right.reduce(environment));
     }
 
-    return new Number(this._left.value + this._right.value);
+    return new Number(this._left + this._right);
   }
 
   get isReducible() {
